@@ -20,7 +20,7 @@ if(window.location.href.includes('index.html')){
 
 //search movie to give suggetions
 async function searchMovie(searchText) {
-    const res = await fetch('http://www.omdbapi.com/?s='+searchText+'&apikey=b5a2eba4');
+    const res = await fetch('https://www.omdbapi.com/?s='+searchText+'&apikey=b5a2eba4');
     const data = await res.json();
     console.log(data,'from search movie');
     if(data.Response === 'True'){
@@ -65,7 +65,7 @@ function removeElements() {
 
 //to get movie by title
 async function getMovieTitle(title) {
-    const res = await fetch('http://www.omdbapi.com/?t='+title+'&apikey=b5a2eba4');
+    const res = await fetch('https://www.omdbapi.com/?t='+title+'&apikey=b5a2eba4');
     const data = await res.json();
     console.log(data,'from get movie');
     if(data.Response === 'True'){
@@ -96,7 +96,7 @@ async function getMovieTitle(title) {
 //function to get movie by search string
 function getMovies(searchString) {
     console.log(searchString);
-    fetch('http://www.omdbapi.com/?s='+searchString+'&apikey=b5a2eba4')
+    fetch('https://www.omdbapi.com/?s='+searchString+'&apikey=b5a2eba4')
     .then((response) => {
         console.log(response);
         return response.json();
@@ -147,7 +147,7 @@ function movieSelected(id){
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
 
-    fetch('http://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
+    fetch('https://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
     .then((response) => {
         console.log(response);
         return response.json();
@@ -176,7 +176,7 @@ function getMovie() {
             <h3>Plot</h3>
             ${movie.Plot}
             <hr>
-            <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
+            <a href="https://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
             <a href="index.html" class="btn btn-danger ml-3" >Go Back To Search</a>
             <a onclick="addToFavorites('${movie.imdbID}')" class="btn btn-warning ml-3" href="#">Add to favorites</a>
           </div>
@@ -230,7 +230,7 @@ function getFavMovies(){
 
     favMovies.forEach((movieId) => {
 
-        fetch('http://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
+        fetch('https://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
         .then((response) => {
             console.log(response);
             return response.json();

@@ -2,7 +2,7 @@ const movieHTML = document.getElementById('movie');
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
 
-    fetch('http://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
+    fetch('https://www.omdbapi.com/?i='+movieId+'&apikey=b5a2eba4')
     .then((response) => {
         console.log(response);
         return response.json();
